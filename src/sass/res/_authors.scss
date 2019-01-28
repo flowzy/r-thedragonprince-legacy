@@ -1,0 +1,30 @@
+.res-userHighlight {
+    &,
+    .collapsed {
+        .tagline,
+        .crosspost-preview-tagline {
+            .author {
+                &.moderator,
+                &.submitter {
+                    &,
+                    &:hover {
+                        background-color: transparent !important;
+                        padding: 0;
+                    }
+    
+                    &:hover {
+                        text-decoration: underline !important;
+                    }
+                }
+    
+                &.moderator {
+                    color: color('green') !important;
+                }
+    
+                &.submitter {
+                    color: color('primary') !important;
+                }
+            }
+        }
+    }
+}

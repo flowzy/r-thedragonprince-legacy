@@ -1,0 +1,310 @@
+// subscribers / online stats
+.subscribers,
+.users-online {
+    float: right;
+    border-top: 1px solid color('light');
+    border-bottom: 1px solid color('light');
+    height: 57px;
+    width: calc(50% - #{$gutter});
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    position: absolute;
+    top: $gutter + 40px + (($gutter - 5px) * 2 + 1px) + 35px + ($gutter - 5px);
+    margin: 0;
+    // margin: 0 0 (15px * 2 + 35px);
+
+    .number {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .word {
+        text-transform: uppercase;
+        font-size: 0;
+
+        &:before {
+            font-size: 12px;
+        }
+    }
+
+    .search-page & {
+        top: $gutter + 40px + 15px;
+    }
+}
+
+.users-online {
+    color: color('body');
+
+    &:before {
+        content: none;
+    }
+
+    .word:before {
+        content: $text-online;
+    }
+}
+
+.subscribers {
+    color: color('primary');
+    border-left: 1px solid color('light');
+    left: 50%;
+
+    .word:before {
+        content: $text-subscribers;
+    }
+}
+
+.titlebox {
+    // margin-top: 40px + 35px + 15px * 3 + 1px * 2;
+    // position: relative;
+    // padding-top: 57px + 15px;
+
+    .comments-page & {
+        padding-top: 0;
+    }
+
+    .search-page & {
+        margin-top: 40px + 15px * 1 + 1px * 2;
+    }
+
+    .redditname {
+        display: none;
+    }
+
+    .tagline {
+        margin: 0 45px;
+        padding: 13px 13px (13px + $gutter);
+        border-left: 1px solid color('light');
+        border-right: 1px solid color('light');
+        border-top: 23px solid color('light');
+        border-radius: $border-radius $border-radius 0 0;
+        font-size: 0;
+        position: relative;
+        height: 48px;
+        font-family: 'Arial', sans-serif;
+        @include clearfix;
+
+        > .author {
+            padding-left: 13px;
+
+            &:after {
+                content: ' • 5,912 points';
+                color: color('body');
+            }
+        }
+
+        .flairselectbtn {
+            position: absolute;
+            left: -1px;
+            right: -1px;
+            top: -23px;
+            bottom: 0;
+            font-size: 0;
+            padding: 55px 0 0 75px;
+            overflow: hidden;
+            box-sizing: border-box;
+
+            &:before {
+                content: $text-sample-post;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #000;
+                width: 150%;
+                display: block;
+            }
+
+            &:after {
+                content: 'Click to edit your flair';
+                font-size: 10px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                font-family: 'Verdana', sans-serif;
+                text-transform: uppercase;
+                font-weight: bold;
+                text-align: center;
+                color: #fff;
+                background: color('primary');
+                border-radius: 0 0 $border-radius $border-radius;
+                line-height: $gutter;
+                transition: background-color 0.15s ease-in-out;
+            }
+
+            &:hover {
+                text-decoration: none;
+
+                &:after {
+                    background: lighten(color('primary'), 5%);
+                }
+            }
+        }
+
+        .flairselector {
+            left: -(45px + 1px) !important;
+            right: -(45px + 1px);
+            top: 100% !important;
+            width: auto !important;
+            margin-left: 0;
+            margin-top: 10px;
+
+            .flairoptionpane {
+                > ul {
+                    > li {
+                        width: (100% / 5) !important;
+                        padding: 8px 0;
+                        float: left;
+                    }
+                }
+            }
+        }
+
+        > .flair {
+            &:before {
+                content: attr(title);
+            }
+
+            &:after {
+                content: '';
+            }
+
+            ~ .userattrs {
+                display: none;
+            }
+        }
+    }
+
+    form.toggle,
+    .leavemoderator {
+        clear: both;
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+        font-family: 'Arial', sans-serif;
+        font-size: 12px;
+        line-height: 1;
+
+        &:not(.flairtoggle) {
+            background: color('light');
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 1px;
+            border-radius: $border-radius;
+            color: color('body');
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    form.flairtoggle {
+        border-top: 1px solid color('light');
+        font-weight: bold;
+        color: #000;
+        justify-content: center;
+        margin-top: 15px;
+
+        input {
+            margin: 0;
+        }
+
+        label {
+            font-size: 0;
+            padding-left: 6px;
+
+            &:before {
+                content: "Show my flair. Here's a sample post:";
+                font-size: 12px;
+            }
+        }
+
+        input,
+        label {
+            cursor: pointer;
+        }
+    }
+
+    // hide "created by ..." footer
+    .bottom {
+        display: none;
+    }
+}
+
+// (un)subscribe button
+.fancy-toggle-button {
+    display: block;
+    // margin: (57px + 15px) auto 0;
+    margin: 0 auto 15px;
+    width: 115px;
+
+    .active {
+        border: 2px solid color('primary');
+        padding: 8px 12px;
+        border-radius: $border-radius;
+        font-size: 14px;
+        line-height: 1;
+        text-align: center;
+        color: color('primary');
+        text-transform: capitalize;
+        font-family: 'Arial', sans-serif;
+        display: block;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .remove {
+        background: transparent;
+
+        &:hover {
+            background: rgba(color('primary'), 0.15);
+        }
+    }
+
+    .add {
+        background: color('primary');
+        color: #fff;
+
+        &:hover {
+            background: lighten(color('primary'), 5%);
+            border-color: transparent;
+        }
+    }
+}
+
+.subButtons .fancy-toggle-button {
+    margin-top: 15px;
+}
+
+.res-fancy-toggle-button {
+    background: transparent;
+    color: color('body');
+    font-weight: normal;
+    border: none;
+    border-top: 1px solid color('light');
+    border-bottom: 1px solid color('light');
+    margin: 0 0 15px;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 6px 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    border-radius: 0;
+
+    &:hover {
+        color: #000;
+    }
+
+    + .res-fancy-toggle-button {
+        border-left: 1px solid color('light');
+    }
+}

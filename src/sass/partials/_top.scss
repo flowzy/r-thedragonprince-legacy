@@ -1,0 +1,405 @@
+#sr-header-area {
+    background: linear-gradient(to top, rgba(#fff, 0.85), rgba(#fff, 0.85)), url(../img/headers/#{$header-img}-blurry.jpg) top center no-repeat;
+    background-size: 100%, auto 274px;
+    border-bottom: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 10px;
+    position: relative;
+    overflow: visible;
+
+    .width-clip {
+        right: 650px;
+        padding-right: 65px;
+    }
+
+    .redesign-beta-optin {
+        width: (152px - 25px);
+        padding-right: 25px;
+        line-height: 25px;
+
+        &:before {
+            width: 25px;
+        }
+
+        &:after {
+            top: 0;
+            bottom: 0;
+            right: 6px;
+            margin: auto;
+        }
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .flat-list,
+    #RESStaticShortcuts {
+        padding: 0 5px;
+        border-right: 1px solid color('border');
+        display: inline-block;
+    
+        li {
+            display: inline-block;
+        }
+
+        a {
+            line-height: 17px;
+            padding: 0 6px;
+            margin: 0 2px;
+            display: inline-block;
+            border-radius: $border-radius;
+            transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+        
+            &:hover {
+                background: color('primary');
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .srSep {
+        display: none;
+    }
+
+    // "my subreddits" dropdown button
+    .dropdown.srdrop,
+    #srDropdown {
+        padding-left: 0;
+
+        .selected,
+        #srDropdownContainer {
+            background: none;
+            margin: 0;
+            border-right: 1px solid color('border');
+            padding: 0 13px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    
+            &:after {
+                content: '';
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-width: 3px;
+                border-left: solid transparent;
+                border-right: solid transparent;
+                border-top: solid;
+                margin: 0 0 2px 5px;
+            }
+
+            &:hover {
+                background: color('border');
+                border-color: transparent;
+            }
+        }
+    }
+
+    .drop-choices {
+        &.srdrop {
+            margin-left: 0;
+        }
+    }
+
+    #RESShortcutsEditContainer {
+        top: 25px;
+        background: rgba(#000, 0.5);
+        max-height: none;
+        height: 22px;
+        opacity: 0;
+        z-index: 10;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+            opacity: 1 !important;
+        }
+
+        #RESShortcutsSort,
+        #RESShortcutsRight,
+        #RESShortcutsLeft,
+        #RESShortcutsAdd {
+            color: #fff;
+            background: transparent;
+        }
+    }
+}
+
+#sr-more-link {
+    background: transparent;
+    padding: 0 13px;
+    border-left: 1px solid color('border');
+    box-sizing: border-box;
+    width: 65px;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+    &:hover {
+        text-decoration: none;
+        background: color('border');
+        border-color: transparent;
+    }
+}
+
+#header-bottom-right {
+    background: transparent;
+    z-index: 1000;
+    padding: 0;
+    line-height: 25px;
+    height: 25px;
+    border-radius: 0;
+    text-transform: uppercase;
+    @include clearfix;
+
+    &,
+    .res-navTop & {
+        bottom: auto;
+        top: 0;
+        border-radius: 0;
+    }
+
+    > *,
+    #openRESPrefs {
+        float: left;
+    }
+
+    a:not([title*="karma"]),
+    .gearIcon {
+        color: #000;
+        display: block;
+        padding: 0 8px;
+        border-left: 1px solid color('border');
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+        &#mail,
+        &#chat,
+        &#modmail,
+        &#new_modmail,
+        &.pref-lang {
+            background-image: none;
+            display: flex;
+            position: static;
+            overflow: visible;
+            font-size: 0;
+            line-height: 0;
+            width: auto;
+            height: 25px;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+
+            &:before {
+                content: '';
+                display: block;
+            }
+        }
+
+        &#chat {
+            &:before {
+                @include sprite('chat');
+            }
+        }
+
+        &#mail {
+            &:before {
+                @include sprite('inbox');
+            }
+
+            &.havemail {
+                &:before {
+                    @include sprite('inbox-new');
+                }
+
+                &:hover {
+                    &:after {
+                        background: lighten(#FF4500, 5%);
+                    }
+                }
+            }
+        }
+
+        &#mail,
+        &#modmail,
+        &#new_modmail {
+            &.havemail {
+                &:after {
+                    content: "You have a new message!";
+                    background: #FF4500;
+                    padding: 10px $gutter;
+                    color: #fff;
+                    border-radius: $border-radius;
+                    position: fixed;
+                    left: $gutter;
+                    bottom: $gutter;
+                    font-size: 14px;
+                    font-family: 'Arial', sans-serif;
+                    line-height: 1.4;
+                    text-indent: 0;
+                    text-transform: none;
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                    transition: background-color 0.15s ease-in-out;
+                    animation: new-message 6s ease-in-out 1;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(200%);
+                }
+            }
+        }
+
+        &#modmail,
+        &#new_modmail {
+            &.havemail {
+                &:after {
+                    content: 'New message in the moderator mail!';
+                }
+            }
+        }
+
+        &#modmail {
+            &:before {
+                @include sprite('legacy-modmail');
+            }
+
+            &.havemail {
+                &:before {
+                    @include sprite('legacy-modmail-new');
+                }
+
+                ~ #new_modmail:after {
+                    content: none;
+                }
+            }
+        }
+
+        &#new_modmail {
+            &:before {
+                @include sprite('modmail');
+            }
+
+            &.havemail {
+                &:before {
+                    @include sprite('modmail-new');
+                }
+            }
+        }
+
+        &.pref-lang {
+            &:before {
+                @include sprite('preferences');
+            }
+        }
+
+        &.message-count {
+            display: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+            background: color('border');
+            border-color: transparent;
+        }
+    }
+
+    .gearIcon:after {
+        content: '';
+        text-shadow: none;
+        color: #000;
+        display: inline-block;
+        margin-bottom: 1px;
+        @include sprite('cog');
+    }
+
+    .user {
+        font-size: 0;
+
+        > a {
+            padding: 0 7px 0 13px;
+            display: inline-block;
+            max-width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0 !important;
+
+            &:hover {
+                background: transparent;
+                border-left-color: color('border');
+            }
+        }
+
+        a,
+        span {
+            font-size: 10px;
+        }
+
+        .userkarma {
+            border: 1px solid rgba(#ff4500, 0.15);
+            border-radius: $border-radius;
+            padding: 2px 6px;
+            margin: 4px 13px 0 0;
+            float: right;
+            line-height: 1;
+
+            &,
+            [title*="karma"] {
+                color: #ff4500 !important;
+            }
+        }
+    }
+
+    .logout a {
+        padding: 0 13px;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .res-navTop & {
+        top: 0;
+    }
+}
+
+[class*="res-accountSwitcher"] {
+    #RESAccountSwitcherIconOverlay,
+    #RESAccountSwitcherIcon {
+        width: 20px !important;
+        height: 15px !important;
+        background: transparent !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        float: right !important;
+        padding: 0 !important;
+        margin: 5px 8px 5px -5px !important;
+        background: color('border') !important;
+        border-radius: $border-radius !important;
+        color: #000 !important;
+    
+        &:after {
+            content: '';
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 3px solid;
+        }
+    }
+
+    #RESAccountSwitcherIcon:hover,
+    #RESAccountSwitcherIconOverlay {
+        color: #fff !important;
+        background: color('primary') !important;
+    }
+
+    #RESAccountSwitcherIconOverlay {
+        border: none !important;
+        margin: 4px 0 0 3px !important;
+
+        &:after {
+            transform: rotate(180deg) !important;
+        }
+
+        &[style*="display: inline"] {
+            display: flex !important;
+        }
+    }
+}

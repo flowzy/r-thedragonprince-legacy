@@ -1,0 +1,79 @@
+@mixin clearfix {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin sprite($name, $onlyPosition: false) {
+    $map: map-get($sprites, $name);
+
+    $url: map-get($sprites, 'url');
+    $position: map-get($map, 'position');
+    $width: map-get($map, 'width');
+    $height: map-get($map, 'height');
+
+    @if $onlyPosition == true {
+        background-position: $position;
+    } @else {
+        background: $url $position no-repeat;
+        width: $width;
+        height: $height;
+    }
+}
+
+@mixin tooltip($alwaysShown: false, $content: attr(title)) {
+    $arrow-size: 5px;
+    $gap: 2px;
+
+    &:before {
+        position: absolute;
+        background: color('tooltip');
+        text-indent: 0;
+        color: #fff;
+        border-radius: $border-radius;
+        padding: 6px 9px;
+        text-align: center;
+        line-height: 1;
+        font-size: 12px;
+        min-width: 100%;
+        bottom: 100%;
+        left: 0;
+        margin-bottom: ($arrow-size + $gap);
+        box-sizing: border-box;
+        white-space: nowrap;
+    }
+
+    &:after {
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin: 0 0 $gap (-$arrow-size);
+        bottom: 100%;
+        left: 50%;
+        border-right: $arrow-size solid transparent;
+        border-left: $arrow-size solid transparent;
+        border-top: $arrow-size solid color('tooltip');
+    }
+
+    @if ($alwaysShown == true) {
+        &:before {
+            content: $content;
+        }
+
+        &:after {
+            content: '';
+        }
+    } @else {
+        &:hover {
+            &:before {
+                content: $content;
+            }
+    
+            &:after {
+                content: '';
+            }
+        }
+    }
+}

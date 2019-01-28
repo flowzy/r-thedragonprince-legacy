@@ -1,0 +1,40 @@
+.md {
+    ul,
+    ol {
+        + ul,
+        + ol {
+            margin-top: 6px;
+        }
+    }
+
+    blockquote {
+        border-color: darken(color('light'), 25%);
+        background: linear-gradient(to right, rgba(darken(color('light'), 20%), 0.15), rgba(darken(color('light'), 20%), 0));
+        color: color('body');
+        padding: 5px 0 5px 15px;
+    }
+
+    table {
+        min-width: 40%;
+    }
+
+    td,
+    th {
+        border-color: color('light');
+    }
+
+    th {
+        background: color('light');
+        border-right-color: #fff;
+
+        &:last-child {
+            border-right-color: color('light');
+        }
+    }
+
+    pre {
+        background: color('code');
+        border: none;
+        color: #fff;
+    }
+}

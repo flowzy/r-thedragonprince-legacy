@@ -1,0 +1,208 @@
+.res-commentBoxes.res-commentBoxes-rounded .comment,
+.comment {
+    border: 0 solid color('light') !important;
+    padding: $gutter !important;
+    padding-left: $gutter * 2 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    clear: left;
+    overflow: visible;
+
+    ~ .comment {
+        border-top-width: 1px !important;
+    }
+
+    // upvote/downvote arrows
+    .midcol {
+        height: auto;
+        margin: 0;
+        padding: 0;
+        width: 12px;
+    }
+
+    .entry {
+        margin-left: 30px;
+    }
+
+    // "X points"
+    .score {
+        font-weight: bold;
+
+        &:before,
+        &:after {
+            content: ' • ';
+            color: color('body');
+        }
+    }
+
+    .usertext {
+        padding-left: (48px + 15px);
+    }
+
+    // comment body
+    .usertext-body {
+        padding: 6px 0 3px !important;
+    }
+
+    // comment edit field
+    .usertext-edit {
+        border-top: 1px solid color('light');
+        margin: 10px 0 0 25px;
+        padding-top: 10px;
+
+        textarea {
+            width: 100% !important;
+        }
+    }
+
+    // child comment
+    .child {
+        margin: 0;
+        border: none;
+    }
+
+    .comment {
+        margin: $gutter 0 0 !important;
+        border-width: 1px !important;
+        border-radius: $border-radius !important;
+    }
+
+    &,
+    .comment .comment,
+    .comment .comment .comment .comment,
+    .comment .comment .comment .comment .comment .comment,
+    .comment .comment .comment .comment .comment .comment .comment .comment {
+        background: #fff !important;
+    }
+
+    .comment,
+    .comment .comment .comment,
+    .comment .comment .comment .comment .comment,
+    .comment .comment .comment .comment .comment .comment .comment,
+    .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+        background: rgba(color('light'), 0.2) !important;
+    }
+
+    // collapsed comment
+    &.collapsed {
+        padding: 10px !important;
+        padding-left: 30px !important;
+
+        .tagline :not(.expand),
+        .tagline a :not(.expand),
+        .search-result-meta :not(.expand),
+        .search-result-meta a :not(.expand) {
+            font-style: normal;
+        }
+
+        .expand {
+            background: color('light');
+            align-items: center;
+
+            &:after {
+                border-right: 1px solid;
+                height: 9px;
+                width: 0;
+            }
+        }
+
+        a.author {
+            padding: 0 !important;
+
+            &:before {
+                content: none;
+            }
+
+            ~ .userattrs,
+            ~ .flair {
+                display: none;
+            }
+        }
+
+        .midcol {
+            display: none;
+        }
+
+        .entry {
+            margin-left: 0;
+        }
+    }
+
+    // regular comment
+    &.noncollapsed {
+        .expand {
+            padding: 15px 0;
+        }
+
+        .buttons {
+            padding-left: (48px + $gutter);
+
+            .first {
+                margin-left: -8px;
+            }
+        }
+    }
+
+    // expand/collapse button
+    a.expand {
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        bottom: -1px;
+        width: $gutter;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        font-size: 0;
+        transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+        border-radius: $border-radius 0 0 $border-radius;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+
+        &:before {
+            border-top: 1px solid;
+            width: 9px;
+            height: 0;
+        }
+
+        &:hover {
+            color: #fff;
+            background: color('primary');
+            text-decoration: none;
+        }
+    }
+
+    // remove the default new comment's styling
+    &,
+    .child .comment {
+        &.new-comment {
+            // background: linear-gradient(to right, lighten(color('primary'), 56%), #fff 50%) !important;
+            border-color: lighten(color('primary'), 40%) !important;
+    
+            .usertext-body {
+                margin: 0;
+                border: none;
+                background: transparent;
+            }
+        }
+    }
+
+    &.new-comment {
+        + .clearleft + .comment {
+            border-top-color: lighten(color('primary'), 40%) !important;
+        }
+    }
+}
+
+.morecomments {
+    a {
+        color: color('primary');
+        display: inline-block;
+        margin: 10px 0 0 10px;
+    }
+}

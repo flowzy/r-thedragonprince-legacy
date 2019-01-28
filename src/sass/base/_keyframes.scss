@@ -1,0 +1,51 @@
+// upvote/downvote animation
+@keyframes arrow-anim {
+    from,
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+    50% {
+        visibility: visible;
+        opacity: 0.3;
+    }
+    50%,
+    to {
+        transform: scale3d(12, 12, 12);
+    }
+}
+
+// new message pop up
+@keyframes new-message {
+    from,
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(200%);
+    }
+
+    13% {
+        transform: translateY(3px);
+    }
+
+    10%,
+    16%,
+    90% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+// slide in latest events
+@keyframes fade-slide {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

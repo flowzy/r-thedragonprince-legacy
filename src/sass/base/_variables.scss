@@ -1,0 +1,174 @@
+$header-img: 'header-1';
+$header-dark: true; // controls the color of the "Latest events" widget on the header
+$header-logo: 'left'; // position of the logo in the header - 'left' or 'center'
+
+$user-flairs: 'logo' 'thunder' 'rayla-1' 'rayla-2' 'runaan' 'prince-callum' 'prince-ezran' 'bait' 'claudia' 'soren' 'parrot-pip' 'king-harrow' 'princes-and-elf' 'rayla-happy' 'rayla-admiring' 'dragon-zem' 'claudia-magic' 'viren-fire' 'rayla-sad' 'amaya' 'corvus' 'prince-ezran-2' 'viren' 'king-harrow-2' 'runaan-2' 'innocent-bait' 'claudia-nose' 'ellis' 'ellis-smile' 'ava' 'gren' 'bardel' 'wonderstorm' 'netflix';
+$user-flairs-url: '../img/user-flairs.jpg';
+$link-flairs: 'announcement' 'general-discussion' 'season-discussion' 'fan-content' 'official-wonderstorm';
+
+$gutter: 20px;
+$border-radius: 2px;
+$sidebar-width: 330px;
+$transition-duration: 0.15s;
+$box-shadow: 0 3px 6px rgba(#000, 0.05);
+
+$text-online: 'Online';
+$text-subscribers: 'Subscribers';
+$text-sample-post: 'An extraordinary discovery inspires two human princes and an elven assassin to team up on an epic quest to bring peace to their warring lands.';
+
+$colors: (
+    'body': #71797d,
+    'border': rgba(#000, 0.06),
+    'border-brown': rgba(#ffedd9, 0.08), // used on the header menu and submit buttons
+    'gold': #bd913e,
+    'tooltip': #141518,
+    'code': #4f4f4f,
+    'primary': #15b5bb,
+    'green': #489e31,
+    // 'brown': #5c3815,
+    'brown': #935e2f,
+    'light': #ecf0f2,
+    'pink': #ca4dd5,
+    'blue': #139feb,
+    'red': #ea3d30,
+    'brand-discord': #7289da,
+    'brand-twitter': #1da1f2,
+    'brand-facebook': #3b5998,
+    'brand-instagram': #833ab4,
+    'brand-tumblr': #35465c
+);
+
+// sprite icons
+$sprites: (
+    'url': url(../img/sprite-icons.png),
+    'netflix': (
+        position: -50px 0,
+        width: 66px,
+        height: 17px
+    ),
+    'preferences': (
+        position: -102px -17px,
+        width: 13px,
+        height: 11px
+    ),
+    'chat': (
+        position: -31px -43px,
+        width: 15px,
+        height: 11px
+    ),
+    'chat-new': (
+        position: -46px -43px,
+        width: 15px,
+        height: 11px
+    ),
+    'legacy-modmail': (
+        position: -83px -43px,
+        width: 15px,
+        height: 13px
+    ),
+    'legacy-modmail-new': (
+        position: -98px -43px,
+        width: 11px,
+        height: 14px
+    ),
+    'modmail': (
+        position: -61px -43px,
+        width: 11px,
+        height: 14px
+    ),
+    'modmail-new': (
+        position: -72px -43px,
+        width: 11px,
+        height: 14px
+    ),
+    'cog': (
+        position: -115px -17px,
+        width: 11px,
+        height: 11px,
+    ),
+    'reddit-snoo': (
+        position: 0 0,
+        width: 50px,
+        height: 40px
+    ),
+    'search': (
+        position: 0 -42px,
+        width: 17px,
+        height: 17px
+    ),
+    'twitter': (
+        position: -17px -42px,
+        width: 14px,
+        height: 12px
+    ),
+    'facebook': (
+        position: -72px -17px,
+        width: 14px,
+        height: 14px
+    ),
+    'discord': (
+        position: -105px -56px,
+        width: 14px,
+        height: 16px
+    ),
+    'envelope': (
+        position: -50px -17px,
+        width: 22px,
+        height: 14px
+    ),
+    'newspaper': (
+        position: -113px -43px,
+        width: 13px,
+        height: 9px
+    ),
+    'inbox': (
+        position: -86px -17px,
+        width: 16px,
+        height: 11px
+    ),
+    'inbox-new': (
+        position: -50px -31px,
+        width: 16px,
+        height: 11px
+    ),
+    'upvote': (
+        position: -66px -31px,
+        width: 12px,
+        height: 12px
+    ),
+    'upvote-colored': (
+        position: -90px -31px,
+        width: 12px,
+        height: 12px
+    ),
+    'downvote': (
+        position: -78px -31px,
+        width: 12px,
+        height: 12px
+    ),
+    'downvote-colored': (
+        position: -102px -31px,
+        width: 12px,
+        height: 12px
+    ),
+    'expand-text': (
+        position: -70px -74px,
+        width: 17px,
+        height: 17px
+    ),
+    'expand-text-expanded': (
+        position: -87px -74px,
+        width: 17px,
+        height: 17px
+    ),
+    'expand-video': (
+        position: -70px -57px,
+        width: 17px,
+        height: 17px
+    ),
+    'expand-video-expanded': (
+        position: -87px -57px,
+        width: 17px,
+        height: 17px
+    )
+);

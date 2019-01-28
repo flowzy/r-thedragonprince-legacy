@@ -1,0 +1,286 @@
+.submit-page {
+    .side {
+        .spacer {
+            &:first-child {
+                border-top: none;
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
+
+        .titlebox {
+            margin-top: 35px + 15px;
+        }
+    }
+
+    .content {
+        > h1 {
+            display: none;
+        }
+
+        .submit {
+            background: #fff;
+            border-radius: $border-radius;
+            width: 800px;
+            max-width: 100%;
+            margin: auto;
+            box-shadow: $box-shadow;
+            padding: $gutter;
+
+            .infobar,
+            .info-notice {
+                padding: 10px 15px;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.formtabs-content {
+    border: none;
+    padding: 0;
+    margin: auto;
+    width: auto;
+}
+
+.roundfield,
+.linefield {
+    width: 100%;
+    box-sizing: border-box;
+    // padding: 10px 15px 15px;
+    padding: 0;
+    border-radius: $border-radius;
+    background: #fff;
+    margin: 0;
+    // border: 1px solid color('light');
+
+    &.submit_text {
+        background: rgba(color('primary'), 0.15);
+        border-color: transparent;
+        padding: 5px 15px 15px;
+    }
+
+    span.title,
+    h1 {
+        line-height: 1;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Arial', sans-serif;
+        color: inherit;
+    }
+
+    .usertext-edit {
+        width: auto;
+        padding: 0;
+    }
+
+    .c-form-group {
+        margin-bottom: 0;
+    }
+
+    .roundfield-content {
+        margin-top: 10px;
+
+        #newlink-with-image-upload & {
+            #new-link-preview {
+                padding: 10px 0 0;
+                border-top: 1px solid color('light');
+                margin-top: 10px;
+            }
+
+            #new-link-url-input input {
+                padding-right: 30px;
+            }
+
+            .clear-input-button {
+                color: rgba(#000, 0.4);
+                background: transparent;
+                border: 1px solid;
+                top: 0;
+                bottom: 0;
+                right: 7px;
+                margin: auto;
+                width: 20px;
+                height: 20px;
+                line-height: 16px;
+                font-weight: bold;
+                box-sizing: border-box;
+                transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+                &:hover {
+                    color: #fff;
+                    border-color: transparent;
+                    background: color('primary');
+                }
+            }
+
+            .image-upload-drop-target {
+                background: color('light');
+                border: none;
+                border-radius: 2px;
+            }
+
+            .file-drop-label {
+                color: color('body');
+            }
+        }
+    }
+
+    #suggested-reddits {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid color('light');
+
+        h3 {
+            margin: 0 0 10px;
+        }
+
+        li {
+            padding-bottom: 5px;
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            &:after {
+                content: ' - ';
+            }
+
+            &:last-child {
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    #sr-autocomplete-area {
+        margin-top: 5px;
+    }
+}
+
+textarea,
+input[type=text],
+input[type=url],
+input[type=password],
+input[type=number],
+#compose-message select,
+.usertext-edit textarea,
+.flairlist .flaircell input[type="text"] {
+    &,
+    .roundfield &,
+    .linefield & {
+        display: block;
+        width: 100%;
+        border: 2px solid color('light');
+        background: #fff;
+        box-sizing: border-box;
+        border-radius: 2px;
+        padding: 6px 10px !important;
+        font-size: 14px;
+        font-family: 'Arial', sans-serif;
+        font-weight: normal;
+        line-height: 1.4;
+        box-shadow: none;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    
+        &:hover {
+            border-color: darken(color('light'), 5%);
+        }
+    
+        &:focus {
+            outline: none;
+            background: #fff;
+            border-color: color('primary');
+        }
+
+        &[disabled] {
+            background: color('light');
+            border-color: transparent;
+        }
+    }
+}
+
+textarea {
+    &,
+    .roundfield & {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        min-width: 100%;
+        min-height: 3em;
+    }
+
+    .roundfield & {
+        max-width: 100%;
+    }
+}
+
+.usertext {
+    .help-toggle,
+    a.reddiquette,
+    .RESBigEditorPop {
+        margin: 11px 0 0 2px !important;
+        font-size: 12px;
+        font-family: 'Arial', sans-serif;
+        color: color('primary');
+    }
+
+    a.reddiquette,
+    .help-toggle a.option.active,
+    .RESBigEditorPop {
+        background: transparent;
+        padding: 4px 8px;
+        border: 1px solid color('light');
+        display: inline-block;
+        border-radius: $border-radius;
+        transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+        &:hover {
+            color: #fff;
+            background: color('primary');
+            border-color: color('primary');
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+ul.tabmenu.formtab {
+    display: flex;
+    align-items: stretch;
+    margin: (-$gutter) (-$gutter) $gutter;
+    padding: 0;
+
+    li {
+        flex: 1;
+        line-height: 40px;
+
+        &,
+        &.selected {
+            a {
+                display: block;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 0 $gutter;
+                background: transparent;
+                text-align: center;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid color('light');
+                color: color('body');
+                font-weight: normal;
+            }
+        }
+
+        &.selected {
+            a {
+                color: color('primary');
+                font-weight: bold;
+                border-bottom-color: color('primary');
+                cursor: default;
+            }
+        }
+    }
+}

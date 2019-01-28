@@ -1,0 +1,256 @@
+.comments-page,
+.other-discussions-page {
+    .side {
+        .spacer {
+            // &:nth-child(1) {
+            //     border-bottom: 1px solid color('light');
+            //     padding-bottom: 15px;
+            // }
+
+            // &:nth-child(5) {
+            //     clear: both;
+            //     // margin-top: 200px;
+            // }
+        }
+
+        .titlebox {
+            margin-top: 15px;
+        }    
+    }
+
+    .thing.link {
+        // &.linkflair-spoiler {
+        //     a.title {
+        //         color: #935e2f;
+        //         text-shadow: none;
+
+        //         &:before {
+        //             content: none;
+        //         }
+        //     }
+        // }
+
+        &:before {
+            border-bottom-left-radius: 0;
+        }
+
+        &.stickied {
+            &:after {
+                content: none;
+            }
+        }
+    }
+}
+
+.commentarea {
+    background: #fff;
+    padding: $gutter;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid color('light');
+
+    .panestack-title,
+    .menuarea {
+        border: 1px solid color('light');
+        font-family: 'Arial', sans-serif;
+        line-height: 1;
+        padding: 8px $gutter;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .panestack-title {
+        border-radius: $border-radius $border-radius 0 0;
+        border-bottom-width: 0;
+        color: #000;
+    }
+
+    .menuarea {
+        border-radius: 0 0 $border-radius $border-radius;
+        border-top-width: 1px;
+        color: color('body');
+        margin-bottom: $gutter;
+
+        .dropdown.lightdrop {
+            .selected {
+                background: none;
+                cursor: pointer;
+                text-decoration: none;
+                color: #000;
+                padding: 0 5px;
+                margin-left: -5px;
+                line-height: 1;
+                display: inline-block;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-right: 4px solid transparent;
+                    border-left: 4px solid transparent;
+                    border-top: 4px solid;
+                    float: right;
+                    margin: 4px 0 0 3px;
+                }
+            }
+        }
+
+        form.toggle {
+            margin-left: 5px;
+            padding-left: 5px;
+            border-left: 1px solid color('light');
+
+            &:first-child {
+                border-left: none;
+            }
+
+            a {
+                font-size: 12px;
+                padding: 2px 5px;
+                border-radius: $border-radius;
+
+                &:hover {
+                    background: color('primary');
+                    color: #fff;
+                }
+
+                &[data-event-action="sticky"] {
+                    color: #489e31;
+
+                    &:hover {
+                        background: #64bc4c;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .spacer {
+            margin: 0;
+
+            &:last-child {
+                float: right;
+            }
+        }
+    }
+
+    > .usertext {
+        margin: 0;
+
+        textarea {
+            background-image: url(../img/comment-area-bg.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: auto 40px;
+            min-height: 130px;
+
+            &:focus {
+                background-image: none;
+            }
+        }
+
+        button {
+            margin: 10px 0 0;
+        }
+    }
+
+    > .nestedlisting {
+        margin: ($gutter * 2) (-$gutter) $gutter;
+        float: left;
+        background: #fff;
+        width: calc(100% - -#{$gutter * 2}); // using double negative as a workaround for reddit removing all spaces inside "calc" function - thus making it invalid
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        > .comment {
+            border-radius: $border-radius $border-radius 0 0;
+            border: none;
+            margin: 0;
+
+            &.new-comment {
+                &:before {
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    border-radius: $border-radius 0 0 0;
+                }
+            }
+
+            > .entry > .tagline .expand {
+                border-radius: $border-radius 0 0 0;
+                left: 0;
+                top: 0;
+                bottom: 0;
+            }
+
+            ~ .comment {
+                border-top: 1px solid color('light');
+                border-radius: 0;
+
+                &:before {
+                    border-radius: 0;
+                }
+
+                > .entry > .tagline .expand {
+                    border-radius: 0;
+                }
+            }
+
+            &:nth-last-child(2) {
+                border-radius: 0 0 $border-radius $border-radius;
+
+                &:before {
+                    border-bottom-left-radius: $border-radius;
+                }
+
+                > .entry > .tagline .expand {
+                    border-radius: 0 0 0 $border-radius;
+                }
+            }
+        }
+    }
+
+    .md {
+        margin: 0;
+    }
+}
+
+.other-discussions-page {
+    .commentarea {
+        .panestack-title {
+            margin-bottom: 10px;
+            border-bottom-width: 1px;
+            border-radius: $border-radius;
+        }
+    }
+}
+
+.usertext-edit {
+    width: 40%;
+    min-width: 500px;
+    margin: 0;
+}
+
+.gold-accent {
+    &.comment-visits-box {
+        margin: $gutter 0 0;
+        display: block;
+    }
+}
+
+.res-commentPreview-draftStyle .livePreview {
+    margin: $gutter 0 0;
+    background: transparent;
+    
+    &.RESDialogSmall {
+        border-color: color('light');
+
+        > h3 {
+            background: color('light');
+            border: none;
+        }
+    }
+}

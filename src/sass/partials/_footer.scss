@@ -1,0 +1,59 @@
+.footer-parent {
+    border-top: 1px solid color('border');
+    padding: $gutter * 2 0 $gutter;
+    background: #fff;
+}
+
+.footer {
+    padding: 0 0 $gutter;
+    margin: 0 auto $gutter;
+    border: none;
+    max-width: 725px;
+    border-bottom: 1px solid color('border');
+
+    .col {
+        margin: 0;
+        padding: 0 15px;
+        border-left: none;
+    }
+
+    .flat-vert {
+        &.title {
+            color: color('body');
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+    
+        .choice {
+            line-height: 30px;
+            display: block;
+            transition: background-color 0.15s ease-in-out, text-indent 0.15s ease-in-out;
+    
+            &:hover {
+                text-decoration: none;
+                text-indent: 13px;
+                background: rgba(color('primary'), 0.15);
+            }
+    
+            &.buygold:hover {
+                background: rgba(color('gold'), 0.15);
+            }
+        }
+    }
+}
+
+.bottommenu {
+    color: color('body');
+    font-size: 12px;
+
+    a {
+        color: color('primary');
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

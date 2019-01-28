@@ -1,0 +1,79 @@
+.sidebox.submit {
+    // position: absolute;
+    top: $gutter;
+
+    &.submit-link {
+        left: $gutter;
+        right: 50%;
+    }
+
+    &.submit-text {
+        right: $gutter;
+        left: 50%;
+    }
+}
+
+.morelink {
+    height: 40px;
+    border: none;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 40px;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: color('border-brown');
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+    }
+
+    &:hover {
+        border-color: transparent;
+
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    &,
+    a {
+        color: #fff;
+    }
+
+    a {
+        display: block;
+        position: relative;
+    }
+
+    .nub {
+        display: none;
+    }
+
+    .submit-link & {
+        border-radius: $border-radius 0 0 $border-radius;
+
+        &,
+        &:hover {
+            background: linear-gradient(to right, #5c3815, #5f3d17);
+        }
+    }
+
+    .submit-text & {
+        border-radius: 0 $border-radius $border-radius 0;
+        border-left: 1px solid color('border-brown');
+
+        &,
+        &:hover {
+            background: linear-gradient(to right, #5f3d17, #644219);
+        }
+    }
+}

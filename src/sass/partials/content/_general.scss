@@ -1,0 +1,31 @@
+body > .content {
+    margin: 0 ($sidebar-width + $gutter * 2) 0 0;
+    padding: $gutter;
+
+    .res-commentBoxes & {
+        padding-right: $gutter !important;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+    .spacer {
+        &,
+        + .spacer,
+        + #newlink-with-image-upload {
+            margin: 0 0 $gutter;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .roundfield,
+        .linefield {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "r-thedragonprince",
+  "version": "1.0.0",
+  "description": "Subreddit theme for r/TheDragonPrince",
+  "main": "server/server.js",
+  "author": "flowzy",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "yarn install --pure-lockfile",
+    "dev": "gulp watch",
+    "prod": "cross-env NODE_ENV=production gulp"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "not dead"
+  ],
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "del": "^3.0.0",
+    "finalhandler": "^1.1.1",
+    "fs": "^0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-modify-css-urls": "^1.1.0",
+    "gulp-notify": "2.2.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "https": "^1.0.0",
+    "imagemin-pngquant": "^6.0.0",
+    "imagemin-zopfli": "^5.1.0",
+    "serve-static": "^1.13.2"
+  },
+  "dependencies": {}
+}

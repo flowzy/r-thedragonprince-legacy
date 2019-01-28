@@ -1,0 +1,32 @@
+@function color($name) {
+    @return map-get($colors, $name);
+}
+
+@function flair-color($flair) {
+    $color: color('primary');
+
+    @if $flair == 'announcement' {
+        $color: color('green');
+    } @else if $flair == 'season-discussion' {
+        $color: color('brown');
+    } @else if $flair == 'fan-content' {
+        $color: color('pink');
+    } @else if $flair == 'official-wonderstorm' {
+        $color: color('blue');
+    }
+
+    $bg-color: $color;
+
+    @if $flair != 'general-discussion' AND $flair != 'default' {
+        $bg-color: lighten($color, 5%);
+    }
+
+    $flair-color: rgba(desaturate($color, 15%), 0.9);
+    $text-color: $color;
+
+    @return (
+        'flair': $flair-color,
+        'text': $text-color,
+        'bg': $bg-color
+    );
+}

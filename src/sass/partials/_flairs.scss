@@ -1,0 +1,317 @@
+// thread flair
+.linkflairlabel {
+    display: block;
+    max-width: none;
+    font-size: 11px;
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    font-weight: normal;
+    padding: 0;
+    color: map-get(flair-color('default'), 'flair');
+
+    @for $n from 1 through length($link-flairs) {
+        $flair: nth($link-flairs, $n);
+        $color: map-get(flair-color($flair), 'flair');
+
+        @if $flair == 'announcement' {
+            .linkflair-#{$flair} &,
+            .stickied & {
+                color: $color;
+            }
+        } @else {
+            .linkflair-#{$flair} & {
+                color: $color;
+            }
+        }
+    }
+}
+
+.res-flairSearch.linkflairlabel {
+    cursor: auto;
+
+    > a {
+        position: static;
+    }
+}
+
+// user flair
+.author {
+    padding-left: 15px !important;
+
+    &:before {
+        content: '';
+        float: left;
+        width: 48px;
+        height: 48px;
+        border-radius: $border-radius;
+    }
+
+    &:hover ~ .flair {
+        @include tooltip(true);
+    }
+}
+
+.author + .userattrs,
+.author + .RESUserTag + .userattrs,
+.tagline .author ~ .userattrs,
+.flair {
+    background: url(#{$user-flairs-url}) no-repeat;
+    background-size: 100%;
+    border-radius: $border-radius;
+    pointer-events: none;
+    position: relative;
+    font-size: 0;
+    font-family: 'Arial', sans-serif;
+    float: left;
+    width: 48px;
+    height: 48px;
+    border: none;
+    padding: 0;
+    margin: 0 0 0 -48px;
+    visibility: visible;
+}
+
+.flair {
+    @include tooltip;
+
+    ~ .userattrs {
+        display: none;
+    }
+}
+
+@for $n from 1 through length($user-flairs) {
+    $flair: nth($user-flairs, $n);
+    $i: $n - 1;
+
+    .flair-#{$flair} {
+        background-position-y: (-48px * $i);
+    }
+}
+
+// selector
+.flairselector {
+    background: linear-gradient(to right, #5c3815, #644219);
+    font-size: 12px;
+    box-shadow: 0 6px 12px rgba(#000, 0.1);
+    z-index: 1000;
+    margin-top: 25px;
+    box-sizing: border-box;
+    padding: 10px !important;
+    border-radius: $border-radius;
+    max-height: none;
+    overflow: visible;
+
+    &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #603d17;
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        margin-left: -5px;
+    }
+
+    .buttons & {
+        width: 250px !important;
+        left: 50% !important;
+        top: 3px !important;
+        margin-left: -(250px / 2);
+
+        a {
+            opacity: 1 !important;
+            color: color('primary') !important;
+            border: none !important;
+            padding: 0 !important;
+
+            &:hover {
+                text-decoration: underline !important;
+            }
+        }
+    }
+
+    &,
+    &.drop-choices.active {
+        border: none;
+    }
+
+    .author {
+        display: none;
+    }
+
+    .flair {
+        &:before,
+        &:after {
+            content: none;
+        }
+    }
+
+    .flairremove {
+        visibility: hidden;
+        margin: 5px 0;
+
+        &[style*="display: inline-block"] {
+            display: block !important;
+        }
+
+        a {
+            visibility: visible;
+        }
+    }
+
+    .flairselection {
+        margin: 0;
+        padding-top: 6px;
+
+        .flair {
+            margin: 0 auto;
+            float: none;
+            display: block;
+
+            &:before {
+                margin-left: -24px;
+            }
+
+            &:after {
+                margin-left: -3px;
+            }
+        }
+
+        .linkflair {
+            display: none;
+        }
+    }
+
+    .customizer {
+        margin: 0;
+    }
+
+    form {
+        input[type="text"] {
+            border: none;
+            background: rgba(color('border-brown'), 0.1);
+            border-radius: $border-radius 0 0 $border-radius;
+            padding: 0 10px;
+            height: 30px;
+            color: #fff;
+            font: inherit;
+            transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    
+            &:hover {
+                background: rgba(color('border-brown'), 0.15);
+            }
+    
+            &:focus {
+                background: #fff;
+                outline: none;
+                color: #000;
+            }
+        }
+
+        button {
+            @extend button.btn;
+            margin: 0;
+            text-transform: none;
+            font-size: inherit;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            height: 30px;
+        }
+    }
+
+    img {
+        display: block;
+        margin: auto;
+    }
+
+    h2 {
+        background: transparent;
+        color: #fff;
+        border-bottom: 1px solid color('border-brown');
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 0 6px 6px;
+        margin: 0;
+    }
+
+    form {
+        border-color: color('border-brown');
+    }
+
+    .flairoptionpane {
+        margin: 0;
+        padding: 10px 0;
+        overflow: visible;
+        max-height: none;
+        @include clearfix;
+
+        > ul {
+            width: 100% !important;
+            max-width: none;
+            float: none !important;
+            display: inline;
+
+            > li {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                padding: 8px 0;
+                transition: background-color 0.15s ease-in-out;
+
+                &,
+                &.selected {
+                    border: none;
+                }
+
+                &:hover {
+                    background: color('border-brown');
+                }
+
+                &.selected {
+                    background: color('cyan');
+
+                    .flair {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+
+        .flair {
+            margin: 0;
+            float: none;
+            box-shadow: 0 2px 4px rgba(#000, 0.1);
+        }
+
+        .linkflair {
+            .title {
+                display: none;
+            }
+        }
+
+        .linkflairlabel {
+            cursor: inherit;
+            color: #fff !important;
+            margin: 0;
+        }
+
+        .author {
+            display: none;
+        }
+    }
+    
+    .flat-list & {
+        li {
+            a {
+                border-radius: 0;
+                padding: 0;
+                border: none;
+                opacity: 1;
+            }
+        }
+    }
+}

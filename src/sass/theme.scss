@@ -1,0 +1,24 @@
+// base
+@import 'base/variables';
+@import 'base/functions';
+@import 'base/mixins';
+@import 'base/keyframes';
+@import 'base/global';
+@import 'base/formatting';
+
+// partials
+@import 'partials/top';
+@import 'partials/header';
+@import 'partials/content';
+@import 'partials/sidebar';
+@import 'partials/footer';
+@import 'partials/flairs';
+
+// page-specific stylings
+@import 'pages/submit';
+@import 'pages/comments';
+
+// RES (Reddit Enhancement Suite) modifications
+.res {
+    @import 'res/authors';
+}

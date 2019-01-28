@@ -1,0 +1,367 @@
+.side {
+    width: $sidebar-width;
+    padding: $gutter;
+    // both gutter sizes + button height + spacing inbetween + search field height + spacing inbetween
+    padding-top: $gutter + 40px + (($gutter - 5px) * 2 + 1px) + 35px + ($gutter - 5px) + 57px;
+    margin: 0;
+    position: relative;
+
+    #search,
+    .sidebox.submit {
+        position: absolute;
+        top: $gutter;
+        left: $gutter;
+        right: $gutter;
+    }
+
+    #search {
+        margin-top: (40px + $gutter - 5px);
+        padding: ($gutter - 5px) 0;
+        border-top: 1px solid color('light');
+    }
+
+    > .spacer {
+        margin: 0 0 ($gutter - 5px);
+    }
+
+    // user is not logged in
+    // iframe[name*='"userId":false'] ~ & {
+    //     padding-top: 300px;
+    // }
+
+    // > .spacer {
+    //     margin: 0;
+
+    //     &:first-child {
+    //         margin-top: (40px + $gutter + 1px);
+    //     }
+
+    //     &:nth-child(-n + 3) {
+    //         @extend %absolute-spacer;
+    //     }
+
+    //     &:nth-child(2),
+    //     &:nth-child(3) {
+    //         @extend %position-buttons;
+    //     }
+
+    //     &:nth-child(3) {
+    //         left: 50% !important;
+    //     }
+    // }
+
+    // // user is not logged in
+    // iframe[name*='"userId":false'] ~ & {
+    //     > .spacer {
+    //         &:nth-child(4) {
+    //             @extend %absolute-spacer;
+    //         }
+
+    //         // position log-in form statically
+    //         &:nth-child(2) {
+    //             position: static;
+    //             width: auto;
+    //             margin-top: 0;
+    //         }
+
+    //         // button spacer indexes change here,
+    //         // so we need to re-apply the sizing and positioning
+    //         // to the correct spacers
+    //         &:nth-child(n + 3):nth-child(-n + 4) {
+    //             @extend %position-buttons;
+    //             left: $gutter !important;
+
+    //             &:nth-child(4) {
+    //                 left: 50% !important;
+    //             }
+    //         }
+    //     }
+    // }
+
+    .md {
+        h1,
+        h2 {
+            color: #fff;
+            @extend div.title;
+        }
+
+        h2 {
+            &:after {
+                content: '';
+                margin-left: auto;
+                width: 0;
+                height: 0;
+                display: inline-block;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid;
+            }
+        }
+    }
+}
+
+%absolute-spacer {
+    position: absolute;
+    top: $gutter;
+    left: $gutter;
+    right: $gutter;
+}
+
+%position-buttons {
+    border-bottom: 1px solid color('light');
+    padding-bottom: $gutter / 2;
+    width: calc(50% - #{$gutter});
+}
+
+// .side {
+//     width: $sidebar-width;
+//     margin: 0;
+//     padding: $gutter;
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+
+//     // not logged in
+//     iframe[name*="\"userId\":false"] ~ & {
+//         .spacer {
+//             &:nth-child(2) {
+//                 order: 0;
+//             }
+
+//             &:nth-child(3),
+//             &:nth-child(4) {
+//                 order: 1;
+//             }
+//         }
+//     }
+
+//     .spacer {
+//         // position: relative;
+//         margin: 0;
+
+//         &:first-child {
+//             order: 1;
+//         }
+
+//         &:nth-child(2),
+//         &:nth-child(3) {
+//             order: 0;
+//         }
+
+//         &:nth-last-child(1),
+//         &:nth-last-child(2) {
+//             order: 99;
+//         }
+
+//         // body:not(.search-page) & {
+//         //     // search
+//         //     &:first-child {
+//         //         position: absolute;
+//         //         top: $gutter;
+//         //         margin-top: (40px + 15px);
+//         //         padding-top: 15px;
+//         //         right: $gutter;
+//         //         left: $gutter;
+//         //         border-top: 1px solid color('light');
+//         //     }
+//         // }
+
+//         body:not(.comments-page) & {
+//             // info
+//             &:nth-child(4) {
+//                 clear: both;
+//             }
+//         }
+//     }
+
+// title panels
+div.title {
+    background: linear-gradient(to right, #676b6f, #808489);
+    height: 34px;
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    padding: 0 $gutter;
+    margin: (15px * 2 + 1px) 0 10px;
+    position: relative;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -15px;
+        border-top: 1px solid color('light');
+        pointer-events: none;
+    }
+
+    h1 {
+        font: inherit;
+        color: inherit;
+    }
+
+    .collapsible & {
+        margin-bottom: 0;
+    }
+}
+
+// recently viewed links
+.gadget {
+    .reddit-link {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .reddit-entry {
+        margin-left: 0;
+    }
+
+    .reddit-link-title {
+        font-weight: bold;
+        font-size: 14px;
+        margin: 2px 0;
+        display: inline-block;
+    }
+
+    small {
+        font-size: 12px;
+    }
+
+    .midcol {
+        width: 12px;
+        height: auto;
+
+        .arrow {
+            margin: 0 0 6px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+
+    .score {
+        margin-left: 0;
+    }
+}
+
+.more,
+.gadget .right,
+.account-activity-box {
+    border-top: 1px solid color('light');
+    margin: 10px 0 0;
+    padding: 6px 0 0;
+    font-size: 11px;
+    line-height: 1;
+
+    a {
+        color: color('primary');
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.account-activity-box {
+    float: left;
+    border: none;
+    margin: -11px 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.sidecontentbox {
+    position: relative;
+
+    .content {
+        border: none;
+        padding: 0;
+    }
+
+    .collapse-button {
+        margin: 0 0 0 auto;
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        color: #fff;
+        padding: 0;
+        width: auto;
+        height: auto;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    // "message the moderators" link
+    a.helplink {
+        font-size: 0;
+        position: absolute;
+        right: $gutter;
+        margin: 10px 0 0;
+        z-index: 10;
+        @include sprite('envelope');
+        @include tooltip(false, 'Message the moderators');
+
+        &:hover {
+            &:before {
+                left: auto;
+                right: 0;
+            }
+        }
+
+        ~ .content {
+            li {
+                margin-bottom: 5px;
+                @include clearfix;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .author {
+                    line-height: 32px;
+
+                    &:before,
+                    + .userattrs,
+                    + .RESUserTag + .userattrs {
+                        width: 32px;
+                        height: 32px;
+                    }
+
+                    + .userattrs,
+                    + .RESUserTag + .userattrs {
+                        margin-left: -32px;
+                    }
+                }
+    
+                .flair {
+                    width: 32px;
+                    height: 32px;
+                    order: -1;
+                    margin-left: -32px;
+
+                    @for $n from 1 through length($user-flairs) {
+                        $flair: nth($user-flairs, $n);
+                        $i: $n - 1;
+                    
+                        &.flair-#{$flair} {
+                            background-position-y: (-32px * $i);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// .sidebox.create {
+//     display: none;
+// }
