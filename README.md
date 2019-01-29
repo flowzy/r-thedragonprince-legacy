@@ -3,8 +3,12 @@ This is the first version of the theme for [r/TheDragonPrince](https://old.reddi
 
 If you still want to set it up, you can follow the instructions [over here](https://github.com/ncla/musereddit#development-setup) (credits to [@ncla](https://github.com/ncla)).
 
+Here's a preview of what it should look like, when a few bugs are fixed (w/o RES enabled):
+
+![Preview](preview.png)
+
 [License](https://choosealicense.com/licenses/mit/)
 
 ---
 
-### [See active repository](https://github.com/flowzy/r-thedragonprince)
+### [See maintained repository](https://github.com/flowzy/r-thedragonprince)
